@@ -32,7 +32,7 @@ def receive_data_from_mql5():
             print(f"Symbol: {data['symbol']}, Price: {data['price']}")
             # สมมติว่า Flask วิเคราะห์และตัดสินใจส่งสัญญาณ "BUY"
             # ในกรณีจริง คุณอาจจะประมวลผลด้วย Logic ที่ซับซ้อนกว่านี้
-            if float(data['price']) < 1.0: # ตัวอย่างเงื่อนไข
+            if float(data['price']) < 144.0: # ตัวอย่างเงื่อนไข EURJPY
                 signals_to_send.append({"symbol": data['symbol'], "action": "BUY", "timestamp": str(datetime.datetime.now())})
 
         return jsonify({"status": "success", "message": "Data received successfully!"}), 200
